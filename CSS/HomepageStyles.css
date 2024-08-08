@@ -1,0 +1,18 @@
+#Banner {
+    color: rgb(0, 207, 235);
+    max-width: fit-content;
+    height: 10%;
+}
+
+#Logo {
+    height: 50px;
+    width: 50px;
+    position:absolute;
+    top: 8px;
+    left: 16px;
+    
+}
+
+#container {
+    color:rgb(0, 207, 235);
+}
