@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Template</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* ----------------------BANNER------------------------------ */
+        #Banner {
+            width: 100%;        
+            height: 17vh;
+            background: linear-gradient(to right, rgba(112, 206, 211, 1), rgba(112, 206, 211, 0)); /* gradient from color to transparent */
+            color: black;        
+            display: flex;  
+            align-items: center;  
+            justify-content: space-between;  
+            box-sizing: border-box;
+            position: fixed;
+            font-size: 2em;
+            padding: 0 20px;
+            letter-spacing: 1px;
+            clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);/* creates the angled shape */
+            z-index: 9; /* Ensure the banner has a lower z-index than the sidepanel */
+        }
+
+        #Banner .Logo {
+            height: 60%;
+            margin-right: 15px;
+        }
+
+        .title {
+            flex-grow: 1;  
+            text-align: left; 
+        }
+
+        .menu {
+            width: 2.5%;
+            height: auto;
+            position: absolute; 
+            right: 2%;
+            bottom: 50%;
+            cursor: pointer; /* Add cursor pointer */
+        }
+        /* ----------------------BANNER------------------------------ */
+        /* ----------------------FOOTER------------------------------ */
+        footer {
+            background-color: white;
+            width: 100%;
+            height: 11em;
+            padding: 10px;
+            position: relative; /* Changed to fixed to ensure footer stays at the bottom */
+            bottom: -500px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Align items with space between */
+            font-size: 1em; 
+            letter-spacing: 1px;
+            overflow:visible;
+        }
+
+        footer .Logo {
+            height: 5em;
+            margin-right: 15px; /* Space between logo and text */
+        }
+
+        footer .text {
+            flex-grow: 1; /* Take up remaining space between logo and links */
+            text-align: left; /* Center text horizontally */
+            font-size: 1.5em; /* Adjust text size as needed */
+        }
+        .links {
+            display: flex;
+            align-items: center; /* Center items vertically */
+        }
+
+        .box {
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            width: 8em;
+            height: 11em;
+            transform: skew(25deg);
+            position: relative;
+        }
+
+        .box:hover {
+            background-color: #ccc;
+        }
+
+        .triangle1 {
+            width: 0;
+            height: 0;
+            border-left: 100vw solid transparent; /* Create the base of the triangle */
+            border-bottom: 6.5em solid rgba(173, 208, 210, 1); /* Create the base of the triangle */
+            position: absolute;
+            bottom: 11em;
+            z-index: 1;
+            
+        }
+
+        .triangle2 {
+            width: 0;
+            height: 0;
+            border-right: 100vw solid transparent; /* Create the base of the triangle */
+            border-bottom: 6.5em solid rgba(112, 167, 180, 1); /* Create the base of the triangle */
+            position: absolute;
+            bottom: 11em;
+            left: -1em;
+            z-index: 2;
+        }
+        /* ----------------------FOOTER------------------------------ */
+        /* ----------------------Navbar------------------------------ */
+        /* The side panel menu */
+        .sidepanel {
+            height: 100%; /* Full height */
+            width: 0; /* Start with 0 width */
+            position: fixed; /* Stay in place */
+            z-index: 10; /* Higher z-index than the banner */
+            top: 0;
+            left: 0;
+            background-color: #111; /* Black */
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 60px; /* Place content 60px from the top */
+            transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+        }
+
+        /* The sidepanel links */
+        .sidepanel a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        /* When you mouse over the navigation links, change their color */
+        .sidepanel a:hover {
+            color: #f1f1f1;
+        }
+
+        /* Position and style the close button (top right corner) */
+        .sidepanel .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header id="Banner">
+        <img class="Logo" src="../IMAGES/Lake Pupuke/kahui-ako-round-logo-2-3-removebg-preview.png" alt="Logo">
+        <div class="title">Pupuke Kahui Ako</div>
+        <!-- Menu button -->
+        <img class="menu" src="../IMAGES/Lake Pupuke/588a64eed06f6719692a2d12.png" alt="Menu" onclick="openNav()">
+    </header>
+        <!-- Nav -->
+        <!-- The side panel -->
+        <div id="mySidepanel" class="sidepanel">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">Page 1</a>
+            <a href="#">Page 2</a>
+            <a href="#">Page 3</a>
+        </div>
+    
+
+    <script> 
+        /* Set the width of the sidebar to 250px (show it) */
+        function openNav() {
+            document.getElementById("mySidepanel").style.width = "250px";
+        }
+
+        /* Set the width of the sidebar to 0 (hide it) */
+        function closeNav() {
+            document.getElementById("mySidepanel").style.width = "0";
+        }
+    </script>
+    
+    <footer>
+        <img class="Logo" src="../IMAGES/Lake Pupuke/kahui-ako-round-logo-2-3-removebg-preview.png" alt="Logo">
+        <div class="text">Pupuke Kahui Ako</div>
+        <div class="links">
+            <a href="page1.html" class="box" style="background-color: rgba(226, 244, 243, 1);"></a>
+            <a href="page2.html" class="box" style="background-color: rgba(209, 228, 231, 1);"></a>
+            <a href="page3.html" class="box" style="background-color: rgba(173, 208, 210, 1);"></a>
+            <a href="page4.html" class="box" style="background-color: rgba(112, 167, 180, 1);"></a>
+            <a class="box" style="background-color: rgba(112, 168, 180, 0);margin-left: -11em;"></a>
+        </div>
+        <div class="triangle1"></div>
+        <div class="triangle2"></div>
+    </footer>
+</body>
+</html>
