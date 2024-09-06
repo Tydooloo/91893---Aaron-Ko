@@ -1,7 +1,10 @@
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
+    padding: 0; /* Ensure no padding */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+
 
 /* ----------------------BANNER------------------------------ */
 #Banner {
@@ -44,19 +47,19 @@ body {
 footer {
     background-color: white;
     width: 100%;
-    height: 11em;
-    padding: 10px;
-    position: relative; /* Changed to fixed to ensure footer stays at the bottom */
-    bottom: -80px;
+    height: auto; /* Change this to auto to fit content */
+    padding: 0;
+    position: relative;
+    bottom: 0; /* removed */
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Align items with space between */
+    justify-content: space-between;
     font-size: 1em; 
     letter-spacing: 1px;
-    overflow:visible;
+    overflow: visible;
+    margin: 0; /* Remove any default margin Ensure no margin that is pushing below */
 }
-
 footer .Logo {
     height: 7em;
     margin-right: 15px; /* Space between logo and text */
@@ -65,10 +68,22 @@ footer .Logo {
 footer .text {
     flex-grow: 1; /* Take up remaining space between logo and links */
     text-align: left; /* Center text horizontally */
-    font-size: 1.5em; /* Adjust text size as needed */
+    font-size: 3vh; /* Adjust text size as needed */
     color:black;
-    margin-left: 140px;
-    margin-bottom:60px;
+    top:0;
+    position:relative;
+}
+
+footer .text a {
+    flex-grow: 1; /* Take up remaining space between logo and links */
+    text-align: left; /* Center text horizontally */
+    font-size: 1.5vh; /* Adjust text size as needed */
+    color:rgb(0, 121, 151);
+    position:absolute;
+    text-decoration: none;
+    top:5vh;
+    left:2vh;
+    margin-top: 0.5vh;
 }
 .links {
     display: flex;
@@ -83,6 +98,17 @@ footer .text {
     height: 11em;
     transform: skew(25deg);
     position: relative;
+    overflow: hidden; /* Ensure any overflow is hidden */
+}
+
+.footerlinktext {
+    display: inline-block;
+    transform: skew(-25deg); /* Invert the skew for the text */
+    position: absolute; /* Position it absolute to center */
+    top: 40%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%) skew(-25deg); /* Center and revert skew */
+    text-align: center; /* Center text if needed */
 }
 
 .box:hover {
@@ -208,13 +234,23 @@ footer .text {
 
 
 .TransparantLogo {
-    width:50%;
-    opacity:25%;
+    width:75%;
+    opacity:15%;
     z-index: 0;
     position:absolute;
-    left:22em;
-    top:0em;
+    text-align: center;
+    top:10vh;
 
+}
+
+.Gradientbackground {
+    width: 100%;
+    height:110vh;
+    position: absolute;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(132, 190, 195, 1));
+    bottom:-5.5vh;
+    left: 0; /* Make sure it starts from the left */
+    z-index: -2;
 }
 
 .SmallText {
@@ -263,9 +299,9 @@ footer .text {
     font-size: xx-large;
     text-decoration: none; /* Remove underline from links */
     background-color: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
-    border-radius: 10px; /* Optional: rounded corners */
+    border-radius: 25px; /* Optional: rounded corners */
     padding: 20px; /* Adjust any padding as needed */
-    opacity: 0; /* Initially hidden */
+    opacity: 0.5; /* Initially hidden */
     transition: opacity 0.3s; /* Smooth show on hover */
 }
 
@@ -278,20 +314,40 @@ footer .text {
 
 /* Slideshow container */
 .Backgrounddiv {
-  max-width: 100%;
-  position: relative;
-  background-color: rgba(14, 92, 99, 1);
+    max-width: 100%;
+    position: relative;
+    background-color: rgba(14, 92, 99, 1);
+    height: 100vh; /* Set height if you want */
+    margin-bottom: 0;
 }
+
 .slideshow-container {
-    width: 50%;
-    left:50vh;
-    position: absolute;
+    width: 50%; /* Change to your desired width */
+    left: 50%; /* Use left for horizontal centering */
+    transform: translateX(-50%); /* Center it by shifting left 50% of its width */
+    position: relative;
+    top: 50%; /* Center vertically, adjust as needed */
+    transform: translate(-50%, -50%); /* Adjust both dimensions */
+    border-radius: 100vh;
+    display: flex; /* Make this a flex container */
+    flex-direction: column; /* Arrange items in a column */
+    align-items: center; /* Center items horizontally */
+}
+.slideshow-container img {
+    width: 100%; /* Make it responsive to parent */
+    height: 500px; /* Fix height to prevent stretching */
+    object-fit: cover; /* Image covers the entire area while maintaining aspect ratio */
+    border-radius: 25px;
 }
 .slideshow-container h1 {
-    position:absolute;
-    top:0;
-    left:50%;
-    font-size:large;
+    position: absolute; /* Maintain absolute positioning */
+    top: -60px; /* Keep it at the top */
+    text-align: center;
+    font-size: large;
+    padding: 1%;
+    color: #f1f1f1;
+    background-color: #017b80;
+    border-radius: 15px;
 }
 
 /* Hide the images by default */
@@ -299,48 +355,54 @@ footer .text {
   display: none;
 }
 
-/* Next & previous buttons */
 .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+    cursor: pointer;
+    position: absolute; /* Keeps them relative to the .slideshow-container */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust to center properly */
+    width: auto;
+    margin-top: 0; /* Set to 0 to avoid conflict with vertical centering */
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
 }
 
 /* Position the "next button" to the right */
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+    right: 0; /* adjust the value as needed */
+    border-radius: 3px 0 0 3px;
+    background-color: rgba(0, 94, 116, 0.39);
+}
+
+/* Position the "previous button" to the left */
+.prev {
+    left: 0; /* adjust the value as needed */
+    border-radius: 3px 0 0 3px;
+    background-color: rgba(1, 97, 119, 0.39);
 }
 
 /* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0, 0, 0, 0.8);
 }
-
 /* Caption text */
 .text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    text-align: center;
 }
-
 /* Number text (1/3 etc) */
 .numbertext {
   color: #f2f2f2;
-  font-size: 10vh;
+  font-size: 3vh;
   padding: 8px 12px;
   position: absolute;
   top: 0;
@@ -348,17 +410,18 @@ footer .text {
 
 /* The dots/bullets/indicators */
 .dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  margin-bottom:70epx;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    text-align:center;
+    position:relative; 
+    bottom:0;
 }
-
 .active, .dot:hover {
   background-color: #717171;
 }
