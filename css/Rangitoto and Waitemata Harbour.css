@@ -396,6 +396,68 @@ footer .text a {
     object-fit: cover;
 }
 
+.FifthBackground {
+    background-color:rgba(13, 91, 99, 1);
+    position:relative;
+    color:white;
+    width:100%;
+    left:0;
+    height:240vh;
+}
+
+.HistoryText1 {
+    width:40vw;
+    height:auto;
+    padding:5vw;
+}
+
+.HistoryImage1 {
+    border-radius:25px;
+    width:40vw;
+    height:50vh;
+    position:absolute;
+    right:5vw;
+    top:27vh;
+}
+
+.HistoryText2 {
+    width:40vw;
+    height:auto;
+    padding:5vw;
+    right:0;
+    position:absolute;
+    top:100vh;
+}
+
+.HistoryImage2 {
+    border-radius:25px;
+    width:40vw;
+    height:50vh;
+    position:absolute;
+    margin:5vw;
+    left:5vw;
+    top:100vh;
+}
+
+.HistoryText3 {
+    width:40vw;
+    height:auto;
+    margin:5vw;
+    position:absolute;
+    bottom:0;
+    left: 0;
+}
+
+.HistoryImage3 {
+    border-radius:25px;
+    width:40vw;
+    height:50vh;
+    position:absolute;
+    right:0;
+    margin:5vw;
+    bottom:0;
+}
+
 
 
 .SmallText {
