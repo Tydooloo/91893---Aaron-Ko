@@ -1,0 +1,497 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    padding: 0; /* Ensure no padding */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.content {
+    margin-bottom: -22vh; /* Ensure no margin at the bottom */
+}
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+/* ----------------------BANNER------------------------------ */
+
+
+#Banner {
+    width: 100%;        
+    height: 17vh;
+    background: linear-gradient(to right, rgba(112, 206, 211, 1), rgba(112, 206, 211, 0)); /* gradient from color to transparent */
+    color: black;        
+    display: flex;  
+    align-items: center;  
+    justify-content: space-between;  
+    box-sizing: border-box;
+    position: fixed;
+    font-size: 2em;
+    padding: 0 20px;
+    letter-spacing: 1px;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 100%);/* creates the angled shape */
+    z-index: 9; /* Ensure the banner has a lower z-index than the sidepanel */
+}
+
+#Banner .Logo {
+    height: 60%;
+    margin-right: 15px;
+}
+
+.title {
+    flex-grow: 1;  
+    text-align: left; 
+}
+
+.menu {
+    width: 2.5%;
+    height: auto;
+    position: absolute; 
+    right: 2%;
+    bottom: 50%;
+    cursor: pointer; /* Add cursor pointer */
+}
+/* ----------------------BANNER------------------------------ */
+/* ----------------------FOOTER------------------------------ */
+footer {
+    background-color: white;
+    width: 100%;
+    height: auto; /* Change this to auto to fit content */
+    padding: 0;
+    position: relative;
+    bottom:0; /* removed */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1em; 
+    letter-spacing: 1px;
+    overflow: visible;
+    margin: 0; /* Remove any default margin Ensure no margin that is pushing below */
+    z-index:4;
+}
+footer .Logo {
+    height: 7em;
+    margin-right: 15px; /* Space between logo and text */
+}
+
+footer .text {
+    flex-grow: 1; /* Take up remaining space between logo and links */
+    text-align: left; /* Center text horizontally */
+    font-size: 3vh; /* Adjust text size as needed */
+    color:black;
+    top:0;
+    position:relative;
+}
+
+footer .text a {
+    flex-grow: 1; /* Take up remaining space between logo and links */
+    text-align: left; /* Center text horizontally */
+    font-size: 1.5vh; /* Adjust text size as needed */
+    color:rgb(0, 121, 151);
+    position:absolute;
+    text-decoration: none;
+    top:5vh;
+    left:2vh;
+    margin-top: 0.5vh;
+}
+.links {
+    display: flex;
+    align-items: center; /* Center items vertically */
+}
+
+.box {
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    width: 8em;
+    height: 11em;
+    transform: skew(25deg);
+    position: relative;
+    overflow: hidden; /* Ensure any overflow is hidden */
+}
+
+.footerlinktext {
+    display: inline-block;
+    transform: skew(-25deg); /* Invert the skew for the text */
+    position: absolute; /* Position it absolute to center */
+    top: 40%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%) skew(-25deg); /* Center and revert skew */
+    text-align: center; /* Center text if needed */
+}
+
+.box:hover {
+    background-color: #ccc;
+}
+
+.triangle1 {
+    width: 0;
+    height: 0;
+    border-left: 100vw solid transparent; /* Create the base of the triangle */
+    border-bottom: 6.5em solid rgba(173, 208, 210, 1); /* Create the base of the triangle */
+    position: absolute;
+    bottom: 11em;
+    z-index: 1;
+    
+}
+
+.triangle2 {
+    width: 0;
+    height: 0;
+    border-right: 100vw solid transparent; /* Create the base of the triangle */
+    border-bottom: 6.5em solid rgba(112, 167, 180, 1); /* Create the base of the triangle */
+    position: absolute;
+    bottom: 11em;
+    left: -1em;
+    z-index: 2;
+}
+/* ----------------------FOOTER------------------------------ */
+/* ----------------------Navbar------------------------------ */
+/* The side panel menu */
+.sidepanel {
+    height: 100%; /* Full height */
+    width: 0; /* Start with 0 width */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Higher z-index than the banner */
+    top: 0;
+    left: 0;
+    background-color: #326468; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.1s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 2vw;
+    color: #003135;
+    display: block;
+    transition: 0.3s;
+
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+/* Style the button that is used to open the sidepanel */
+  .menu:hover {
+    color: #ffffff;
+  }
+
+/* ----------------------Navbar------------------------------ */
+/* ----------------------MAIN CONTENT------------------------------ */
+
+
+#container {
+    position: relative; /* Make the container the reference for absolutely positioned elements */
+    width: 100%;
+}
+
+.HomepageMainImage {
+    position: relative; /* Make this the context for the triangles */
+    height: auto; /* Adjust as needed to ensure the image fits well */
+}
+
+.HomepageMainImage img {
+    width: 100%;
+    height: auto; /* Keep aspect ratio */
+    display: block; /* Remove extra space below image */
+    z-index: 0;
+    filter: brightness(0.5);
+}
+
+.HomepageMainImage h1 {
+    position:absolute;
+    top:45%;
+    left:35%;
+    color:white;
+    
+}
+
+
+.TransparentBlueTriangle, .WhiteTriangle {
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 0; /* Set to the left of the container */
+    bottom: 0; /* Align to the bottom of the container */
+}
+
+.TransparentBlueTriangle { 
+    border-right: 100vw solid transparent; /* Create the base of the triangle */
+    border-bottom: 6.5em solid rgba(112, 168, 180, 0.459); /* Create the base of the triangle */
+    z-index: 1;
+}
+
+.WhiteTriangle { 
+    border-left: 100vw solid transparent; /* Create the base of the triangle */
+    border-bottom: 6.5em solid rgb(255, 255, 255); /* Create the base of the triangle */
+    z-index: 2;
+}
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically if needed */
+    position: relative; /* Ensures content is above the triangles */
+    z-index: 3; /* Content will appear above triangles */
+    text-align: center;
+    font-size: 1.25em; /* Adjust font size as needed */
+    line-height: 2;
+}
+
+#RangitotoIntro {
+    width:75%;
+    height:auto;
+}
+
+.TransparantLogo {
+    width:25%;
+    opacity:15%;
+    z-index: 0;
+    position:absolute;
+    text-align: center;
+    top:5vh;
+
+}
+
+.FirstBackground {
+    width: 100%;
+    height:85vh;
+    position: relative;
+    background: rgba(202, 240, 248, 0.68);
+    top:10vh;
+    margin:0;
+}
+
+.FirstBackground h2, .MaoriAssociationTask{
+    text-align: center;
+    width:40vw;
+    position:absolute;
+    margin:5vw;
+    left:0;
+}
+
+.MaoriAssociationTask{
+    top:10vh;
+}
+
+.FirstBackground img{
+    position:absolute;
+    border-radius: 10vh;
+    width:40vw;
+    margin:5vw;
+    right:0;
+    object-fit: cover;  
+}
+
+.SecondBackground {
+    width: 100%;
+    height:100vh;
+    position: relative;
+    background: rgba(75, 144, 147, 1);
+    background: linear-gradient(to bottom,  rgba(75, 144, 147, 1)60%, rgba(255, 0, 0, 0) );
+    top:0;
+}
+
+.SecondBackground h2, .Geology{
+    top:15vh;
+    width:75%;
+    margin-left: 12vw;
+    margin-right:10vw;
+    height:auto;
+}
+
+.ImageBackground {
+    filter: brightness(40%);
+}
+
+.ThirdBackground {
+    width: 100%;
+    height:135vh;
+    position: relative;
+    top:10vh;
+    left:0;
+}
+
+.ThirdBackground .ImageBackground{
+    top:-50vh;
+    width:100%;
+    height:100vh;
+    left:0;
+    position:absolute;
+    color:white;
+    z-index:-2;
+    object-fit: cover;
+}
+.ThirdBackground .TitleHUMANUSE{
+    top:-20vh;;
+    width:75vw;
+    position:absolute;
+    color:white;
+    z-index:100;
+    left:10%;
+}
+
+
+.HumanUseText {
+    top:-5vh;;
+    width:75vw;
+    position:absolute;
+    color:white;
+    z-index:0;
+    left:10%;
+}
+
+.Bar {
+    width:100%;
+    background-color: rgba(14, 92, 99, 1);
+    height:10vh;
+    position: absolute;
+    bottom:75vh;
+}
+
+
+.ThirdBackground img{
+    width: 100%;
+    height:80vh;
+    left:0; 
+    position: absolute;
+    bottom:-5vh;
+    z-index:0;
+    object-fit: cover;  
+}
+
+.Gradient{
+    width: 100%;
+    height:20vh;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)); /* Fade out effect */
+    position: absolute;
+    bottom:-20vh;
+
+}
+
+#NgātiPāoa {
+    font-size: 3vw;
+    position: absolute;
+    bottom:25vh;
+    left:40vw;
+    z-index:2;
+}
+
+
+.NgātiText {
+    width:60%;
+    height:auto;
+    z-index:100;
+    margin-top:100vh;
+    position:relative;
+    left:19vw;
+    bottom:60vh;
+    font-weight: normal;
+}
+
+
+.FifthBackground {
+    background-color:rgba(13, 91, 99, 1);
+    position:relative;
+    color:white;
+    width:100%;
+    left:0;
+    height:225vh;
+    top:-30vh;
+    margin-bottom: -5vh;
+}
+
+.EarlyHistory {
+    position:absolute;
+    color:white;
+    width:100%;
+    left:0;
+    height:auto;
+    top:10vh;
+}
+
+
+.HistoryText1 {
+    width:40vw;
+    height:auto;
+    font-weight: normal;
+    position:absolute;
+    left:5vw;
+    top:27vh;
+}
+
+.HistoryImage1 {
+    border-radius:25px;
+    width:40vw;
+    height:50vh;
+    position:absolute;
+    right:5vw;
+    top:32vh;
+}
+
+.HistoryText2 {
+    width:40vw;
+    height:auto;
+    padding:5vw;
+    right:0;
+    position:absolute;
+    top:95vh;
+    font-weight: normal;
+}
+
+.HistoryImage2 {
+    border-radius:25px;
+    width:40vw;
+    height:50vh;
+    position:absolute;
+    margin:5vw;
+    left:0;
+    top:90vh;
+}
+
+.HistoryText3 {
+    width:40vw;
+    height:auto;
+    margin:5vw;
+    position:absolute;
+    bottom:15vh;
+    left: 0;
+    font-weight: normal;
+}
+
+.HistoryImage3 {
+    border-radius:25px;
+    width:40vw;
+    height:50vh;
+    position:absolute;
+    right:0;
+    margin:5vw;
+    bottom:10vh;
+}
+
+
+
+.SmallText {
+    line-height: 1;
+    font-size: small;
+    z-index:2;
+
+}
+
+
