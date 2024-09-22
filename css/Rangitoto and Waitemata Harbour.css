@@ -4,9 +4,15 @@ body {
     padding: 0; /* Ensure no padding */
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
 
 
 /* ----------------------BANNER------------------------------ */
+
+
 #Banner {
     width: 100%;        
     height: 17vh;
@@ -50,7 +56,7 @@ footer {
     height: auto; /* Change this to auto to fit content */
     padding: 0;
     position: relative;
-    bottom: -500vh; /* removed */
+    bottom: -5vh; /* removed */
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -59,6 +65,7 @@ footer {
     letter-spacing: 1px;
     overflow: visible;
     margin: 0; /* Remove any default margin Ensure no margin that is pushing below */
+    z-index:4;
 }
 footer .Logo {
     height: 7em;
@@ -146,18 +153,18 @@ footer .text a {
     z-index: 10; /* Higher z-index than the banner */
     top: 0;
     left: 0;
-    background-color: #111; /* Black */
+    background-color: #326468; /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+    transition: 0.1s; /* 0.5 second transition effect to slide in the sidepanel */
 }
 
 /* The sidepanel links */
 .sidepanel a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
-    color: #818181;
+    font-size: 2vw;
+    color: #003135;
     display: block;
     transition: 0.3s;
 }
@@ -175,6 +182,10 @@ footer .text a {
     font-size: 36px;
     margin-left: 50px;
 }
+/* Style the button that is used to open the sidepanel */
+  .menu:hover {
+    color: #ffffff;
+  }
 
 /* ----------------------Navbar------------------------------ */
 /* ----------------------MAIN CONTENT------------------------------ */
@@ -236,24 +247,24 @@ footer .text a {
     justify-content: center; /* Center vertically if needed */
     position: relative; /* Ensures content is above the triangles */
     z-index: 3; /* Content will appear above triangles */
-    padding: 20px; /* Add some padding for readability */
     text-align: center;
     font-size: 1.25em; /* Adjust font size as needed */
     line-height: 2;
 }
 
-.RangitotoIntro {
+#RangitotoIntro {
     width:75%;
     height:auto;
 }
 
 .TransparantLogo {
-    width:50%;
+    width:30%;
     opacity:15%;
     z-index: 0;
     position:absolute;
-    text-align: center;
-    top:0;
+    top:10vh;
+    left:33%;
+    
 
 }
 
@@ -275,7 +286,7 @@ footer .text a {
 }
 
 .FirstBackground .MaoriAssociationTask{
-    top:5vw;
+    top:10vh;
 }
 
 .FirstBackground img{
@@ -324,7 +335,7 @@ footer .text a {
     top:5vw;
     width:75vw;
     position:absolute;
-    margin-left: 10vw;
+    margin-left: 12vw;
     margin-right:10vw;
     color:white;
 }
@@ -350,7 +361,7 @@ footer .text a {
     object-fit: cover;  
 }
 
-.Waitematā {
+#Waitematā {
     font-size: 3vw;
     position: absolute;
     bottom:-45vh;
@@ -402,7 +413,8 @@ footer .text a {
     color:white;
     width:100%;
     left:0;
-    height:240vh;
+    height:205vh;
+    margin-top: 10vh;
 }
 
 .HistoryText1 {
@@ -426,7 +438,7 @@ footer .text a {
     padding:5vw;
     right:0;
     position:absolute;
-    top:100vh;
+    top:80vh;
 }
 
 .HistoryImage2 {
@@ -435,8 +447,8 @@ footer .text a {
     height:50vh;
     position:absolute;
     margin:5vw;
-    left:5vw;
-    top:100vh;
+    left:0;
+    top:80vh;
 }
 
 .HistoryText3 {
