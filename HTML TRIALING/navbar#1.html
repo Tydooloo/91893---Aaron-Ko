@@ -4,29 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>navbar1</title>
+    <title>Navbar 1</title>
     <style>
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
         }
+
         #Banner {
-            width: 100%;        
+            width: 100%;
             height: 15vh;
             background-color: rgba(112, 206, 211, 1);
-            color: white;        
+            color: white;
+            display: flex;  
             align-items: center;  
             justify-content: space-between;  
             line-height: 100px;   
             box-sizing: border-box;
             position: fixed;
-            display: flex;  
             font-size: 2em;
             padding: 0 20px;
             letter-spacing: 1px;
         }
 
-        #Banner .Logo {
+        .Logo {
             height: 60%; 
             margin-right: 15px; 
         }
@@ -38,10 +39,9 @@
         }
 
         .menu {
-            margin-left: auto;  
+            cursor: pointer; /* Add cursor pointer */
             width: 2.5%;
             height: 45%;
-            cursor: pointer; /* Add cursor pointer */
         }
 
         /* The side panel menu */
@@ -80,12 +80,18 @@
             right: 25px;
             font-size: 36px;
             margin-left: 50px;
+            color: #818181; /* Color for the close button */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .sidepanel .closebtn:hover {
+            color: #f1f1f1; /* Color when hovering over close button */
         }
     </style>
 </head>
 <body>
     <div id="Banner">
-        <img class="Logo" src="../IMAGES/Lake Pupuke/kahui-ako-round-logo-2-3-removebg-preview.png" alt="Logo">
+        <img class="Logo" src="../IMAGES/Lake%20Pupuke/kahui-ako-round-logo-2-3-removebg-preview.png" alt="Logo">
         <div class="title">Pupuke Kahui Ako</div>
 
         <!-- The side panel -->
@@ -97,16 +103,14 @@
         </div>
 
         <!-- Menu button -->
-        <img class="menu" src="../IMAGES/Lake Pupuke/588a64eed06f6719692a2d12.png" alt="Menu" onclick="openNav()">
+        <img class="menu" src="../IMAGES/Lake%20Pupuke/588a64eed06f6719692a2d12.png" alt="Menu" onclick="openNav()">
     </div>
 
     <script> 
-        /* Set the width of the sidebar to 250px (show it) */
         function openNav() {
             document.getElementById("mySidepanel").style.width = "250px";
         }
 
-        /* Set the width of the sidebar to 0 (hide it) */
         function closeNav() {
             document.getElementById("mySidepanel").style.width = "0";
         }
